@@ -5,11 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionManager {
-	private static String		url			= "jdbc:mysql://localhost:3306/tpfilrouge";
-	private static String		driverName	= "com.mysql.jdbc.Driver";
-	private static String		username	= "root";
-	private static String		password	= "spoonatte";
-	private static Connection	con;
+	private static String url = "jdbc:mysql://localhost:3306/tpfilrouge";
+	private static String driverName = "com.mysql.jdbc.Driver";
+	private static String username = "root";
+	private static String password = "zaza";
+	private static Connection con;
 
 	public static Connection getConnection() {
 		try {
