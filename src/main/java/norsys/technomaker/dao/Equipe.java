@@ -11,4 +11,8 @@ public class Equipe {
 		this.imgEquipe = imgEquipe;
 	}
 
+	public int getIdEquipe() {
+		return this.idEquipe;
+	}
+
 }
