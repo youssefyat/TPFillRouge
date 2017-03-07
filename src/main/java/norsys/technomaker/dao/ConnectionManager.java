@@ -10,7 +10,6 @@ public class ConnectionManager {
 	private static String		username	= "root";
 	private static String		password	= "spoonatte";
 	private static Connection	con;
-	private static String		urlstring;
 
 	public static Connection getConnection() {
 		try {
@@ -21,7 +20,7 @@ public class ConnectionManager {
 				System.out.println("echec de creation connexion avec base de données.");
 			}
 		} catch (ClassNotFoundException ex) {
-			System.out.println("Driver not found.");
+			System.out.println("Driver non trouvé.");
 		}
 		return con;
 	}
