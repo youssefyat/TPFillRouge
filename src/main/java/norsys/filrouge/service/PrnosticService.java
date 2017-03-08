@@ -1,4 +1,4 @@
-package norsys.technomaker.service;
+package norsys.filrouge.service;
 
 public class PrnosticService {
 

@@ -1,4 +1,4 @@
-package norsys.technomaker;
+package norsys.filrouge.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,7 +14,7 @@ import org.dbunit.operation.DatabaseOperation;
 
 import com.mysql.jdbc.Statement;
 
-import norsys.technomaker.util.ConnectionManager;
+import norsys.filrouge.util.ConnectionManager;
 
 public class GenerateDataSet {
 

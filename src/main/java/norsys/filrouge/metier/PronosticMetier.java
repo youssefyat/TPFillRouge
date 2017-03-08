@@ -1,4 +1,4 @@
-package norsys.technomaker.metier;
+package norsys.filrouge.metier;
 
 public class PronosticMetier {
 

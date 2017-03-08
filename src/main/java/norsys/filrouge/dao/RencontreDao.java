@@ -1,8 +1,8 @@
-package norsys.technomaker.dao;
+package norsys.filrouge.dao;
 
 import java.util.ArrayList;
 
-import norsys.technomaker.entities.Rencontre;
+import norsys.filrouge.entities.Rencontre;
 
 public interface RencontreDao {
 	public int createRencontre(Rencontre rencontre);

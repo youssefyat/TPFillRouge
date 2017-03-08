@@ -1,8 +1,8 @@
-package norsys.technomaker.dao;
+package norsys.filrouge.dao;
 
 import java.util.ArrayList;
 
-import norsys.technomaker.entities.Equipe;
+import norsys.filrouge.entities.Equipe;
 
 public class EquipeDaoImp implements EquipeDao {
 

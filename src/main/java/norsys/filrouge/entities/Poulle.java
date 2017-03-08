@@ -1,4 +1,4 @@
-package norsys.technomaker.entities;
+package norsys.filrouge.entities;
 
 public class Poulle {
 	private int idPoulle;

@@ -1,4 +1,4 @@
-package norsys.technomaker.dao;
+package norsys.filrouge.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import norsys.technomaker.entities.Competition;
-import norsys.technomaker.util.ConnectionManager;
+import norsys.filrouge.entities.Competition;
+import norsys.filrouge.util.ConnectionManager;
 
 public class CompetitionDaoImp implements CompetitionDao {
 	Connection cn = ConnectionManager.getConnection();

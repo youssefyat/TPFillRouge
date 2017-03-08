@@ -1,4 +1,4 @@
-package norsys.technomaker.dao;
+package norsys.filrouge.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import norsys.technomaker.entities.Personne;
-import norsys.technomaker.util.ConnectionManager;
+import norsys.filrouge.entities.Personne;
+import norsys.filrouge.util.ConnectionManager;
 
 public class PersonneDaoImp implements PersonneDao {
 	Connection cn = ConnectionManager.getConnection();

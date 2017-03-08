@@ -1,8 +1,8 @@
-package norsys.technomaker.dao;
+package norsys.filrouge.dao;
 
 import java.util.ArrayList;
 
-import norsys.technomaker.entities.Competition;
+import norsys.filrouge.entities.Competition;
 
 public interface CompetitionDao {
 	public int createCompetition(Competition competition);

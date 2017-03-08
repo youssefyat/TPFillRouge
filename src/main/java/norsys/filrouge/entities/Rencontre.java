@@ -1,4 +1,4 @@
-package norsys.technomaker.entities;
+package norsys.filrouge.entities;
 
 import java.sql.Time;
 

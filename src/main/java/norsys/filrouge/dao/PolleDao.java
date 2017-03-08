@@ -1,8 +1,8 @@
-package norsys.technomaker.dao;
+package norsys.filrouge.dao;
 
 import java.util.ArrayList;
 
-import norsys.technomaker.entities.Poulle;
+import norsys.filrouge.entities.Poulle;
 
 public interface PolleDao {
 	public int createPoulle(Poulle poulle);

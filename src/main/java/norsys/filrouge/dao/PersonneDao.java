@@ -1,8 +1,8 @@
-package norsys.technomaker.dao;
+package norsys.filrouge.dao;
 
 import java.util.ArrayList;
 
-import norsys.technomaker.entities.Personne;
+import norsys.filrouge.entities.Personne;
 
 public interface PersonneDao {
 
