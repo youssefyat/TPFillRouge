@@ -15,6 +15,7 @@ public class ConnectionManager {
 		try {
 			Class.forName(driverName);
 			try {
+				System.out.println("testing");
 				con = DriverManager.getConnection(url, username, password);
 			} catch (SQLException ex) {
 				System.out.println("echec de creation connexion avec base de données.");
