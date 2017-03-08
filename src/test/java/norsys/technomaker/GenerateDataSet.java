@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
-
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -15,7 +14,7 @@ import org.dbunit.operation.DatabaseOperation;
 
 import com.mysql.jdbc.Statement;
 
-import norsys.technomaker.dao.ConnectionManager;
+import norsys.technomaker.util.ConnectionManager;
 
 public class GenerateDataSet {
 
@@ -27,9 +26,8 @@ public class GenerateDataSet {
 		java.sql.Connection jdbcConnection = ConnectionManager.getConnection();
 
 		IDatabaseConnection connection = new DatabaseConnection(jdbcConnection, schema);
-	
-		connection.getConfig().setProperty(DatabaseConfig.PROPERTY_METADATA_HANDLER, new MySqlMetadataHandler());
 
+		connection.getConfig().setProperty(DatabaseConfig.PROPERTY_METADATA_HANDLER, new MySqlMetadataHandler());
 
 		IDataSet fullDataSet = connection.createDataSet();
 		FlatXmlDataSet.write(fullDataSet, new FileOutputStream("full_data.xml"));

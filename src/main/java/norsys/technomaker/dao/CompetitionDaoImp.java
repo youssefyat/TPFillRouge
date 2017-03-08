@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import norsys.technomaker.entities.Competition;
+import norsys.technomaker.util.ConnectionManager;
 
 public class CompetitionDaoImp implements CompetitionDao {
 	Connection cn = ConnectionManager.getConnection();

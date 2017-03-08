@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import norsys.technomaker.entities.Personne;
+import norsys.technomaker.util.ConnectionManager;
 
 public class PersonneDaoImp implements PersonneDao {
 	Connection cn = ConnectionManager.getConnection();

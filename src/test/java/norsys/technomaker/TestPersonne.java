@@ -1,32 +1,29 @@
 package norsys.technomaker;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import norsys.technomaker.dao.ConnectionManager;
-import norsys.technomaker.dao.PersonneDaoImp;
-import norsys.technomaker.entities.Personne;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 import java.sql.Connection;
-
 import java.sql.SQLException;
 import java.util.List;
 
-import org.dbunit.IDatabaseTester;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.DataSetException;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
+import org.junit.Before;
+import org.junit.Test;
+
+import norsys.technomaker.dao.PersonneDaoImp;
+import norsys.technomaker.entities.Personne;
+import norsys.technomaker.util.ConnectionManager;
 
 public class TestPersonne {
 
-	private FlatXmlDataSet loadedDataSet;
-	private PersonneDaoImp personneDao;
-	private Connection jdbcConnection;
+	private FlatXmlDataSet	loadedDataSet;
+	private PersonneDaoImp	personneDao;
+	private Connection		jdbcConnection;
 
 	protected IDatabaseConnection getConnection() throws Exception {
 
