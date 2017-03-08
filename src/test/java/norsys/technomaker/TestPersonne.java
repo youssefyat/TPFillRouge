@@ -15,12 +15,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.dbunit.IDatabaseTester;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.DataSetException;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
-public class TestPersonne{
+
+public class TestPersonne {
 
 	private FlatXmlDataSet loadedDataSet;
 	private PersonneDaoImp personneDao;
@@ -33,10 +35,9 @@ public class TestPersonne{
 	}
 
 	@Before
-	public void initialiserSao() {
+	public void initialiserSao() throws Exception {
 
 		personneDao = new PersonneDaoImp();
-	
 
 	}
 
@@ -51,15 +52,16 @@ public class TestPersonne{
 		personneDao = new PersonneDaoImp();
 		Personne personne = personneDao.getPersonneById(1);
 		assertThat(personne.getIdPersonne()).isEqualTo(1);
-	
+
 	}
 
 	@Test
 	public void shouldGetSizePersonne() throws DataSetException, Exception {
-		int personneList=this.getDataSet().getTable("personne").getRowCount();
+		int personneList = this.getDataSet().getTable("personne").getRowCount();
 		assertThat(personneList).isEqualTo(3);
-		
+
 	}
+
 	@Test
 	public void shouldTestPersonne() {
 		PersonneDaoImp personnedao = new PersonneDaoImp();
@@ -68,7 +70,5 @@ public class TestPersonne{
 		assertEquals("Ouijdane", personneList.get(3));
 
 	}
-
-	
 
 }
