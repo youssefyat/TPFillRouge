@@ -8,10 +8,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import norsys.filrouge.entities.Competition;
-import norsys.filrouge.util.ConnectionManager;
+import norsys.filrouge.util.ConnectionManagerH2;
 
 public class CompetitionDaoImp implements CompetitionDao {
-	Connection cn = ConnectionManager.getConnection();
+	Connection cn;
+
+	public void setConnection(Connection cn) throws Exception {
+		this.cn = ConnectionManagerH2.getConnectionH2();
+	}
 
 	@Override
 	public int createCompetition(Competition competition) {

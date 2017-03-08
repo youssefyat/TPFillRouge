@@ -1,4 +1,4 @@
-use tpFilRouge;
+
 /*==============================================================*/
 /* Table : Competition                                          */
 /*==============================================================*/
@@ -22,23 +22,23 @@ INSERT INTO Personne(idPersonne ,nomPersonne,prenomPersonne,email,passwd,role)
 /* Table : Poulle                                               */
 /*==============================================================*/
 
-INSERT INTO Poulle(idPoulle,libellePoulle) VALUES(1,"A");
-INSERT INTO Poulle(idPoulle,libellePoulle) VALUES(2,"B");
+INSERT INTO Poulle(idPoulle,libellePoulle) VALUES(NULL,'A');
+INSERT INTO Poulle(idPoulle,libellePoulle) VALUES(NULL,'B');
 
 
 /*==============================================================*/
 /* Table : Equipe                                               */
 /*==============================================================*/
 
-INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(1,"Equipe 1A",NULL);
-INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(2,"Equipe 2A",NULL);
-INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(3,"Equipe 3A",NULL);
-INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(4,"Equipe 4A",NULL);
+INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(1,'Equipe 1A',NULL);
+INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(2,'Equipe 2A',NULL);
+INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(3,'Equipe 3A',NULL);
+INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(4,'Equipe 4A',NULL);
 
-INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(5,"Equipe 1B",NULL);
-INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(6,"Equipe 2B",NULL);
-INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(7,"Equipe 3B",NULL);
-INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(8,"Equipe 4B",NULL);
+INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(5,'Equipe 1B',NULL);
+INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(6,'Equipe 2B',NULL);
+INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(7,'Equipe 3B',NULL);
+INSERT INTO Equipe(idEquipe,libelleEquipe,imgEquipe) VALUES(8,'Equipe 4B',NULL);
 
 
 /*==============================================================*/

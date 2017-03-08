@@ -3,11 +3,6 @@
 /* Date de création :  2017/02/28 04:03:52 PM                   */
 /*==============================================================*/
 
-drop database if exists tpFilRouge ;
-
-create database tpFilRouge;
-
-use tpFilRouge;
 
 drop table if exists Competition;
 
@@ -66,7 +61,7 @@ CREATE TABLE Personne (
     prenomPersonne VARCHAR(40) NOT NULL,
     email VARCHAR(40) NOT NULL,
     passwd CHAR(32) NOT NULL,
-    role SET('ROLE_ADMIN', 'ROLE_SALARIE'),
+    role VARCHAR(40) NOT NULL,
     PRIMARY KEY (idPersonne)
 );
 
@@ -75,7 +70,7 @@ CREATE TABLE Personne (
 /*==============================================================*/
 CREATE TABLE Poulle (
     idPoulle INT NOT NULL AUTO_INCREMENT,
-    libellePoulle VARCHAR(20) NOT NULL,
+    libellePoulle VARCHAR(20),
     PRIMARY KEY (idPoulle)
 );
 

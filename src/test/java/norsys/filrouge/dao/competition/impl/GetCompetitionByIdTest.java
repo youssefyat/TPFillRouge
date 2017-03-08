@@ -12,5 +12,6 @@ public class GetCompetitionByIdTest extends CompetitionDaoTest {
 	public void shouldGetCompetitionById() {
 		Competition comp = competitionDao.getCometitionById(1);
 		assertEquals(comp.getLibelleCompetition(), "CAN 2017");
+		System.out.println("comp" + comp.getLibelleCompetition());
 	}
 }

@@ -8,10 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import norsys.filrouge.entities.Personne;
-import norsys.filrouge.util.ConnectionManager;
+import norsys.filrouge.util.ConnectionManagerJDBC;
 
 public class PersonneDaoImp implements PersonneDao {
-	Connection cn = ConnectionManager.getConnection();
+	Connection cn = ConnectionManagerJDBC.getConnectionJDBC();
 
 	@Override
 	public int createPersonne(Personne personne) {
