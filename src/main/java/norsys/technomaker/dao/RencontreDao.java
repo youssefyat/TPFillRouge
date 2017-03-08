@@ -2,12 +2,12 @@ package norsys.technomaker.dao;
 
 import java.util.ArrayList;
 
-import norsys.technomaker.entities.Competition;
+import norsys.technomaker.entities.Rencontre;
 
-public interface Rencontre {
+public interface RencontreDao {
 	public int createRencontre(Rencontre rencontre);
 
 	public ArrayList<Rencontre> getAllRencontres();
 
-	public Competition getRencontreById(int id);
+	public Rencontre getRencontreById(int id);
 }

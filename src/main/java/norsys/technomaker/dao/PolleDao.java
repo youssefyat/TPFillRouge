@@ -2,7 +2,6 @@ package norsys.technomaker.dao;
 
 import java.util.ArrayList;
 
-import norsys.technomaker.entities.Competition;
 import norsys.technomaker.entities.Poulle;
 
 public interface PolleDao {
@@ -10,5 +9,5 @@ public interface PolleDao {
 
 	public ArrayList<Poulle> getAllPoulles();
 
-	public Competition getPoulleById(int id);
+	public Poulle getPoulleById(int id);
 }
