@@ -3,20 +3,31 @@ package norsys.technomaker.entities;
 import java.util.ArrayList;
 
 public class Personne {
-	private int idPersonne;
-	private String nomPersonne;
-	private String prenomPersonne;
-	private String email;
-	private String password;
-	private String role;
-	private ArrayList<Pronostic> pronostics;
+	private int						idPersonne;
+	private String					nomPersonne;
+	private String					prenomPersonne;
+	private String					email;
+	private String					password;
+	private String					role;
+	private ArrayList<Pronostic>	pronostics;
 
 	public Personne() {
 		super();
 	}
 
 	public Personne(int idPersonne, String nomPersonne, String prenomPersonne, String email, String password,
-			String role, ArrayList<Pronostic> pronostics) {
+	        String role) {
+		super();
+		this.idPersonne = idPersonne;
+		this.nomPersonne = nomPersonne;
+		this.prenomPersonne = prenomPersonne;
+		this.email = email;
+		this.password = password;
+		this.role = role;
+	}
+
+	public Personne(int idPersonne, String nomPersonne, String prenomPersonne, String email, String password,
+	        String role, ArrayList<Pronostic> pronostics) {
 		super();
 		this.idPersonne = idPersonne;
 		this.nomPersonne = nomPersonne;
