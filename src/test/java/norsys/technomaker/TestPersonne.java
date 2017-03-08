@@ -36,11 +36,13 @@ public class TestPersonne{
 	public void initialiserSao() {
 
 		personneDao = new PersonneDaoImp();
+	
+
 	}
 
 	@SuppressWarnings("deprecation")
 	protected IDataSet getDataSet() throws Exception {
-		loadedDataSet = new FlatXmlDataSet(this.getClass().getClassLoader().getResourceAsStream("dbunitData.xml"));
+		loadedDataSet = new FlatXmlDataSet(this.getClass().getClassLoader().getResourceAsStream("full_data.xml"));
 		return loadedDataSet;
 	}
 
