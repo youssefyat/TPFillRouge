@@ -109,6 +109,9 @@ public class PronosticMetier {
 														// Score
 		listPersonne.stream().sorted((p1, p2) -> {
 			return p1.getScoreGlobal() > p2.getScoreGlobal() ? 1 : 0;
+		}).forEach(personne -> {
+			System.out.println("Salarié : " + personne.getNomPersonne() + " " + personne.getPrenomPersonne()
+					+ " Score Global" + personne.getScoreGlobal());
 		});
 	}
 }
