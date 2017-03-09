@@ -1,6 +1,7 @@
 package norsys.filrouge.dao;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import norsys.filrouge.entities.Competition;
 
@@ -10,6 +11,6 @@ public interface CompetitionDao {
 
 	public ArrayList<Competition> getAllCompetitions();
 
-	public Competition getCometitionById(int id);
+	public Optional<Competition> getCometitionById(int id);
 
 }

@@ -18,13 +18,14 @@ public class GetAllPersonnesTest extends ApersonneTest {
 	@Test
 	public void shouldGetAllPersonnes() {
 		
-		assertThat(lstPersonnes.size()).isEqualTo(3);
+		
+		assertThat(lstPersonnes.stream().count()).isEqualTo(3);
 	}
 	
 	
 	@Test
 	public void shouldNotReturnZero(){
-		
+	
 		assertThat(lstPersonnes.size()).isGreaterThan(0);
 	}
 	

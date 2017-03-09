@@ -1,6 +1,7 @@
 package norsys.filrouge.dao;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import norsys.filrouge.entities.Poulle;
 
@@ -9,5 +10,5 @@ public interface PolleDao {
 
 	public ArrayList<Poulle> getAllPoulles();
 
-	public Poulle getPoulleById(int id);
+	public Optional<Poulle> getPoulleById(int id);
 }

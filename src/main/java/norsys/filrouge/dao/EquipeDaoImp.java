@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import norsys.filrouge.entities.Equipe;
 
@@ -44,7 +45,7 @@ public class EquipeDaoImp implements EquipeDao {
 	}
 
 	@Override
-	public Equipe getEquipeById(int id) {
+	public Optional<Equipe> getEquipeById(int id) {
 		Equipe equipe = new Equipe();
 		try {
 			String requetePrep = "select * from equipe where idEquipe = ?";
@@ -57,7 +58,7 @@ public class EquipeDaoImp implements EquipeDao {
 				String img = rs.getString(3);
 				equipe = new Equipe(idEquipe, libelle, img);
 			}
-			return equipe;
+			return Optional.ofNullable(equipe);
 
 		} catch (SQLException e) {
 			e.printStackTrace();

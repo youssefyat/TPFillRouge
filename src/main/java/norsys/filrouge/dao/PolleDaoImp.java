@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import norsys.filrouge.entities.Poulle;
 
@@ -45,8 +46,8 @@ public class PolleDaoImp implements PolleDao {
 	}
 
 	@Override
-	public Poulle getPoulleById(int id) {
-		Poulle poulle = new Poulle();
+	public Optional<Poulle>  getPoulleById(int id) {
+		 Poulle poulle = new Poulle();
 		try {
 			Statement st = this.connection.createStatement();
 			ResultSet rs = st.executeQuery("select * from poulle");
@@ -58,7 +59,7 @@ public class PolleDaoImp implements PolleDao {
 				String libelle = rs.getString(2);
 				poulle = new Poulle(idPoulle, libelle);
 			}
-			return poulle;
+			return Optional.of(poulle);
 
 		} catch (SQLException e) {
 			e.printStackTrace();

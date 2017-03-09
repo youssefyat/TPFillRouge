@@ -1,6 +1,7 @@
 package norsys.filrouge.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import norsys.filrouge.dao.EquipeDao;
 import norsys.filrouge.dao.EquipeDaoImp;
@@ -15,7 +16,7 @@ public class EquipeService {
 		this.equipeDao = new EquipeDaoImp(ConnectionManagerJDBC.getInstance().getConnection());
 	}
 
-	public Equipe getEquipe(int id) {
+	public Optional<Equipe> getEquipe(int id) {
 		return this.equipeDao.getEquipeById(id);
 	}
 

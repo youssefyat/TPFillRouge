@@ -1,6 +1,7 @@
 package norsys.filrouge.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import norsys.filrouge.dao.PolleDao;
 import norsys.filrouge.dao.PolleDaoImp;
@@ -15,7 +16,7 @@ public class PoulleService {
 		this.poulleDao = new PolleDaoImp(ConnectionManagerJDBC.getInstance().getConnection());
 	}
 
-	public Poulle getPoulle(int id) {
+	public Optional<Poulle>  getPoulle(int id) {
 		return this.poulleDao.getPoulleById(id);
 	}
 

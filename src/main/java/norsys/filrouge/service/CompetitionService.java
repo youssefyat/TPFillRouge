@@ -1,6 +1,7 @@
 package norsys.filrouge.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import norsys.filrouge.dao.CompetitionDao;
 import norsys.filrouge.dao.CompetitionDaoImp;
@@ -14,7 +15,7 @@ public class CompetitionService {
 		this.competitionDao = new CompetitionDaoImp(ConnectionManagerJDBC.getInstance().getConnection());
 	}
 
-	public Competition getCometition(int id) {
+	public Optional<Competition> getCometition(int id) {
 		return this.competitionDao.getCometitionById(id);
 	}
 

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import norsys.filrouge.entities.Personne;
 
@@ -53,7 +54,7 @@ public class PersonneDaoImp implements PersonneDao {
 	}
 
 	@Override
-	public Personne getPersonneById(int id) {
+	public Optional<Personne> getPersonneById(int id) {
 		Personne pers = new Personne();
 		try {
 			String requetePrep = "select * from personne where idPersonne = ?";
@@ -69,7 +70,7 @@ public class PersonneDaoImp implements PersonneDao {
 				String role = rs.getString(6);
 				pers = new Personne(idPers, nom, prenom, email, password, role);
 			}
-			return pers;
+			return Optional.ofNullable(pers);
 
 		} catch (SQLException e) {
 			e.printStackTrace();

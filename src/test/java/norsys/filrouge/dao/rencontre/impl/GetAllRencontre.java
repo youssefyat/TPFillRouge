@@ -16,9 +16,9 @@ protected ArrayList<Rencontre> lstRencontres;
 	}
 
 	@Test
-	public void shouldGetAllCompetitions() {
+	public void shouldGetAllRencontres() {
 		
-		assertThat(lstRencontres.size()).isEqualTo(1);
+		assertThat(lstRencontres.size()).isEqualTo(15);
 	}
 	
 	

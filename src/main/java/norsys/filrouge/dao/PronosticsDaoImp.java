@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import norsys.filrouge.entities.Personne;
 import norsys.filrouge.entities.Pronostic;
@@ -29,7 +30,7 @@ public class PronosticsDaoImp implements PronosticDao {
 	public ArrayList<Pronostic> getAllPronostics() {
 		ArrayList<Pronostic> lstPronostics = new ArrayList<Pronostic>();
 		Rencontre rencontre = null;
-		Personne personne = null;
+		Optional<Personne> personne = null;
 		RencontreDao rencontreDao = new RencontreDaoImp();
 		PersonneDao personneDao = new PersonneDaoImp();
 		try {
@@ -56,7 +57,7 @@ public class PronosticsDaoImp implements PronosticDao {
 				while (rsPers.next()) {
 					personne = personneDao.getPersonneById(idPers);
 				}
-				Pronostic pronostic = new Pronostic(idPronostic, butEquipe1, butEquipe2, score, rencontre, personne);
+				Pronostic pronostic = new Pronostic(idPronostic, butEquipe1, butEquipe2, score, rencontre,personne.get());
 				lstPronostics.add(pronostic);
 			}
 			return lstPronostics;
@@ -71,7 +72,7 @@ public class PronosticsDaoImp implements PronosticDao {
 	public Pronostic getPronosticsById(int id) {
 		Pronostic pronostic = null;
 		Rencontre rencontre = null;
-		Personne personne = null;
+		Optional<Personne> personne = null;
 		RencontreDao rencontreDao = new RencontreDaoImp();
 		PersonneDao personneDao = new PersonneDaoImp();
 		try {
@@ -100,7 +101,7 @@ public class PronosticsDaoImp implements PronosticDao {
 				while (rsPers.next()) {
 					personne = personneDao.getPersonneById(idPers);
 				}
-				pronostic = new Pronostic(idPronostic, butEquipe1, butEquipe2, score, rencontre, personne);
+				pronostic = new Pronostic(idPronostic, butEquipe1, butEquipe2, score, rencontre, personne.get());
 			}
 			return pronostic;
 

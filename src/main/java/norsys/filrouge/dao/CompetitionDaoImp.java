@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import norsys.filrouge.entities.Competition;
 
@@ -47,7 +48,7 @@ public class CompetitionDaoImp implements CompetitionDao {
 	}
 
 	@Override
-	public Competition getCometitionById(int id) {
+	public Optional<Competition> getCometitionById(int id) {
 		Competition comp = new Competition();
 		try {
 			String requetePrep = "select * from competition where idCompetition = ?";
@@ -59,7 +60,7 @@ public class CompetitionDaoImp implements CompetitionDao {
 				String libelleComp = rs.getString(2);
 				comp = new Competition(idComp, libelleComp);
 			}
-			return comp;
+			return Optional.ofNullable(comp);
 
 		} catch (SQLException e) {
 			e.printStackTrace();

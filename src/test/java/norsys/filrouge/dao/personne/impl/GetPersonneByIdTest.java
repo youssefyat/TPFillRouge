@@ -3,24 +3,37 @@ package norsys.filrouge.dao.personne.impl;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import java.util.Optional;
 
-import norsys.filrouge.entities.Competition;
+import org.junit.Test;
 import norsys.filrouge.entities.Personne;
 
 public class GetPersonneByIdTest extends ApersonneTest {
 
 	@Test
 	public void shouldGetPersonneById() {
-		Personne personne = this.personneDao.getPersonneById(1);
-		assertThat(personne.getNomPersonne()).isEqualTo("HAMMADI");
-		
+		boolean testExist = this.personneDao.getAllPersonnes().stream()
+				.filter(p -> p.getIdPersonne()==1).findFirst().isPresent();
+		;
+
+		assertTrue(testExist);
+
 	}
-	
+
+	@Test
+	public void shouldGetPersonneExist() {
+		
+		boolean testExist = this.personneDao.getAllPersonnes().stream()
+				.filter(p -> p.getNomPersonne().equals("HAMMADI")).findFirst().isPresent();
+		;
+
+		assertTrue(testExist);
+
+	}
 	@Test
 	public void shouldGetPersonneByIdOne() {
-		Personne personne = this.personneDao.getPersonneById(1);
-		assertThat(personne.getIdPersonne()).isEqualTo(1);
-		
+		Optional<Personne> personne = this.personneDao.getPersonneById(1);
+		assertThat(personne.get().getIdPersonne()).isEqualTo(1);
+
 	}
 }
