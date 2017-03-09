@@ -23,9 +23,19 @@ public class PronosticsDaoImp implements PronosticDao {
 	}
 
 	@Override
-	public int createPronostic(Pronostic pronostic) {
-
-		return 0;
+	public void createPronostic(Pronostic pronostic) {
+		try {
+			PreparedStatement reqPre = this.connection.prepareStatement("insert into pronostic values(?,?,?,?,?,?");
+			reqPre.setInt(1, pronostic.getIdPronostic());
+			reqPre.setInt(2, pronostic.getRencontre().getIdRencontre());
+			reqPre.setInt(3, pronostic.getPersonne().getIdPersonne());
+			reqPre.setInt(4, pronostic.getButEquipe1());
+			reqPre.setInt(5, pronostic.getButEquipe2());
+			reqPre.setInt(6, pronostic.getScore());
+			reqPre.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
