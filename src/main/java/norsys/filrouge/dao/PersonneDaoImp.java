@@ -12,6 +12,9 @@ import norsys.filrouge.entities.Personne;
 public class PersonneDaoImp implements PersonneDao {
 	Connection connection;
 
+	public PersonneDaoImp() {
+	}
+
 	public PersonneDaoImp(Connection connection) {
 		this.connection = connection;
 	}
@@ -72,6 +75,24 @@ public class PersonneDaoImp implements PersonneDao {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public void editPersonne(int id, Personne personne) {
+		try {
+			PreparedStatement reqPre = this.connection.prepareStatement(
+			        "update personne set nomPersonne=?, prenomPersonne=?, email=?, passwd=?,role=? where idPersonne=?");
+			reqPre.setString(1, personne.getNomPersonne());
+			reqPre.setString(2, personne.getPrenomPersonne());
+			reqPre.setString(3, personne.getEmail());
+			reqPre.setString(4, personne.getPassword());
+			reqPre.setString(5, personne.getRole());
+			reqPre.setInt(6, id);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

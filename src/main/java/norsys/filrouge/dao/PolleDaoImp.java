@@ -1,6 +1,9 @@
 package norsys.filrouge.dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import norsys.filrouge.entities.Poulle;
@@ -20,14 +23,47 @@ public class PolleDaoImp implements PolleDao {
 
 	@Override
 	public ArrayList<Poulle> getAllPoulles() {
+		ArrayList<Poulle> lstPoulles = new ArrayList<Poulle>();
+		try {
+			Statement st = this.connection.createStatement();
+			ResultSet rs = st.executeQuery("select * from poulle");
+			/*
+			 * rechercher les pronostics associé a un personne to do lATER
+			 */
+			while (rs.next()) {
+				int idPoulle = rs.getInt(1);
+				String libelle = rs.getString(2);
+				Poulle poulle = new Poulle(idPoulle, libelle);
+				lstPoulles.add(poulle);
+			}
+			return lstPoulles;
 
-		return null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public Poulle getPoulleById(int id) {
+		Poulle poulle = new Poulle();
+		try {
+			Statement st = this.connection.createStatement();
+			ResultSet rs = st.executeQuery("select * from poulle");
+			/*
+			 * rechercher les pronostics associé a un personne to do lATER
+			 */
+			while (rs.next()) {
+				int idPoulle = rs.getInt(1);
+				String libelle = rs.getString(2);
+				poulle = new Poulle(idPoulle, libelle);
+			}
+			return poulle;
 
-		return null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

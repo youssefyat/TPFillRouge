@@ -12,4 +12,6 @@ public interface PersonneDao {
 
 	public Personne getPersonneById(int id);
 
+	public void editPersonne(int id, Personne personne);
+
 }
