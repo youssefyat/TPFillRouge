@@ -1,10 +1,16 @@
 package norsys.filrouge.dao;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 import norsys.filrouge.entities.Equipe;
 
 public class EquipeDaoImp implements EquipeDao {
+	Connection connection;
+
+	public EquipeDaoImp(Connection connection) {
+		this.connection = connection;
+	}
 
 	@Override
 	public int createEquipe(Equipe equipe) {

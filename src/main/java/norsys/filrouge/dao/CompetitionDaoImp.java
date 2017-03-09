@@ -8,13 +8,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import norsys.filrouge.entities.Competition;
-import norsys.filrouge.util.ConnectionManagerH2;
 
 public class CompetitionDaoImp implements CompetitionDao {
-	Connection cn;
+	Connection connection;
 
-	public void setConnection(Connection cn) throws Exception {
-		this.cn = ConnectionManagerH2.getConnectionH2();
+	public CompetitionDaoImp(Connection connection) {
+		try {
+			this.connection = connection;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -27,7 +31,7 @@ public class CompetitionDaoImp implements CompetitionDao {
 	public ArrayList<Competition> getAllCompetitions() {
 		ArrayList<Competition> lstCompetition = new ArrayList<Competition>();
 		try {
-			Statement st = cn.createStatement();
+			Statement st = this.connection.createStatement();
 			ResultSet rs = st.executeQuery("select * from competition");
 			while (rs.next()) {
 				int id = rs.getInt(1);
@@ -48,7 +52,7 @@ public class CompetitionDaoImp implements CompetitionDao {
 		Competition comp = new Competition();
 		try {
 			String requetePrep = "select * from competition where idCompetition = ?";
-			PreparedStatement prepStmt = cn.prepareStatement(requetePrep);
+			PreparedStatement prepStmt = this.connection.prepareStatement(requetePrep);
 			prepStmt.setInt(1, id);
 			ResultSet rs = prepStmt.executeQuery();
 			while (rs.next()) {

@@ -8,10 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import norsys.filrouge.entities.Personne;
-import norsys.filrouge.util.ConnectionManagerJDBC;
 
 public class PersonneDaoImp implements PersonneDao {
-	Connection cn = ConnectionManagerJDBC.getConnectionJDBC();
+	Connection connection;
+
+	public PersonneDaoImp(Connection connection) {
+		this.connection = connection;
+	}
 
 	@Override
 	public int createPersonne(Personne personne) {
@@ -23,7 +26,7 @@ public class PersonneDaoImp implements PersonneDao {
 	public ArrayList<Personne> getAllPersonnes() {
 		ArrayList<Personne> lstPersonnes = new ArrayList<Personne>();
 		try {
-			Statement st = cn.createStatement();
+			Statement st = this.connection.createStatement();
 			ResultSet rs = st.executeQuery("select * from personne");
 			/*
 			 * rechercher les pronostics associé a un personne to do lATER
@@ -51,7 +54,7 @@ public class PersonneDaoImp implements PersonneDao {
 		Personne pers = new Personne();
 		try {
 			String requetePrep = "select * from personne where idPersonne = ?";
-			PreparedStatement prepStmt = cn.prepareStatement(requetePrep);
+			PreparedStatement prepStmt = this.connection.prepareStatement(requetePrep);
 			prepStmt.setInt(1, id);
 			ResultSet rs = prepStmt.executeQuery();
 			while (rs.next()) {

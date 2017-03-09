@@ -1,6 +1,6 @@
 package norsys.filrouge.dao.competition.impl;
 
-import static org.junit.Assert.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 
@@ -12,8 +12,8 @@ public class GetAllCompetitionTest extends CompetitionDaoTest {
 
 	@Test
 	public void shouldGetAllCompetitions() {
-		ArrayList<Competition> lstCompet = competitionDao.getAllCompetitions();
-		assertNotNull(lstCompet);
+		ArrayList<Competition> lstCompet = this.competitionDao.getAllCompetitions();
+		assertThat(lstCompet.size()).isEqualTo(1);
 	}
 
 }
