@@ -49,9 +49,9 @@ public class PronosticsDaoImp implements PronosticDao {
 			Statement requetePron = this.connection.createStatement();
 			ResultSet rsPron = requetePron.executeQuery("select * from pronostic");
 			PreparedStatement requeteRenc = this.connection
-			        .prepareStatement("select * from rencontre where idRencontre = ?");
+					.prepareStatement("select * from rencontre where idRencontre = ?");
 			PreparedStatement requetePers = this.connection
-			        .prepareStatement("select * from personne where idPersonne = ?");
+					.prepareStatement("select * from personne where idPersonne = ?");
 			while (rsPron.next()) {
 				int idPronostic = rsPron.getInt(1);
 				int idRenc = rsPron.getInt(2);
@@ -89,13 +89,13 @@ public class PronosticsDaoImp implements PronosticDao {
 		PersonneDao personneDao = new PersonneDaoImp();
 		try {
 			PreparedStatement requetePron = this.connection
-			        .prepareStatement("select * from pronostic where idPronostic = ?");
+					.prepareStatement("select * from pronostic where idPronostic = ?");
 			requetePron.setInt(1, id);
 			ResultSet rsPron = requetePron.executeQuery();
 			PreparedStatement requeteRenc = this.connection
-			        .prepareStatement("select * from rencontre where idRencontre = ?");
+					.prepareStatement("select * from rencontre where idRencontre = ?");
 			PreparedStatement requetePers = this.connection
-			        .prepareStatement("select * from personne where idPersonne = ?");
+					.prepareStatement("select * from personne where idPersonne = ?");
 			while (rsPron.next()) {
 				int idPronostic = rsPron.getInt(1);
 				int idRenc = rsPron.getInt(2);
@@ -127,7 +127,7 @@ public class PronosticsDaoImp implements PronosticDao {
 	public void editPronostic(int id, Pronostic pronostic) {
 		try {
 			PreparedStatement reqPre = this.connection.prepareStatement(
-			        "update pronostic set butEquipe1=? , butEquipe2=?, score=?, idRencontre=? , idPersonne=? where idPronostic=?");
+					"update pronostic set butEquipe1=? , butEquipe2=?, score=?, idRencontre=? , idPersonne=? where idPronostic=?");
 			reqPre.setInt(1, pronostic.getButEquipe1());
 			reqPre.setInt(2, pronostic.getButEquipe2());
 			reqPre.setInt(3, pronostic.getScore());
@@ -148,11 +148,11 @@ public class PronosticsDaoImp implements PronosticDao {
 		RencontreDao rencontreDao = new RencontreDaoImp();
 		try {
 			PreparedStatement requetePron = this.connection
-			        .prepareStatement("select * from pronostic where idPersonne = ? group by nomPersonne");
+					.prepareStatement("select * from pronostic where idPersonne = ? ");
 			requetePron.setInt(1, personne.getIdPersonne());
 			ResultSet rsPron = requetePron.executeQuery();
 			PreparedStatement requeteRenc = this.connection
-			        .prepareStatement("select * from rencontre where idRencontre = ?");
+					.prepareStatement("select * from rencontre where idRencontre = ?");
 			while (rsPron.next()) {
 				int idPronostic = rsPron.getInt(1);
 				int idRenc = rsPron.getInt(2);

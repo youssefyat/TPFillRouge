@@ -58,12 +58,12 @@ public class RencontreDaoImp implements RencontreDao {
 		Poulle poulle = null;
 		try {
 			PreparedStatement prepStmt = this.connection
-			        .prepareStatement("select * from rencontre where idRencontre = ?");
+					.prepareStatement("select * from rencontre where idRencontre = ?");
 			prepStmt.setInt(1, id);
 			PreparedStatement prepCmp = this.connection
-			        .prepareStatement("select * from competition where idCompetition = ?");
+					.prepareStatement("select * from competition where idCompetition = ?");
 			PreparedStatement prepPoulle = this.connection.prepareStatement("select * from poulle where idPoulle = ?");
-			PreparedStatement prepEquipe = this.connection.prepareStatement("select * from Equipe where idEquipe = ?");
+			PreparedStatement prepEquipe = this.connection.prepareStatement("select * from equipe where idEquipe = ?");
 			ResultSet rs = prepStmt.executeQuery();
 			while (rs.next()) {
 				int idRen = rs.getInt(1);

@@ -32,8 +32,8 @@ public class PronosticService {
 		return this.pronosticDao.getAllPronostics();
 	}
 
-	public int createPronostic(Pronostic pronostic) {
-		return this.pronosticDao.createPronostic(pronostic);
+	public void createPronostic(Pronostic pronostic) {
+		this.pronosticDao.createPronostic(pronostic);
 	}
 
 	public void editePronostic(Pronostic pronostic) {

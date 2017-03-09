@@ -44,9 +44,9 @@ public class PronosticMetier {
 			pronostic.setScore(0);
 			afficherRencontre(rencontre);
 
-			System.out.println("But Equipe " + rencontre.getEquipe1() + " :");
+			System.out.println("But Equipe " + rencontre.getEquipe1().getLibelleEquipe() + " :");
 			pronostic.setButEquipe1(scanner.nextInt());
-			System.out.println("But Equipe " + rencontre.getEquipe2() + " :");
+			System.out.println("But Equipe " + rencontre.getEquipe2().getLibelleEquipe() + " :");
 			pronostic.setButEquipe2(scanner.nextInt());
 
 			pronosticService.createPronostic(pronostic);
