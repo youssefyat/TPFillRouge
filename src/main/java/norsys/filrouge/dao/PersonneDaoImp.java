@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package norsys.filrouge.dao;
 
 import java.sql.Connection;

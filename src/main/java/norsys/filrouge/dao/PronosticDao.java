@@ -7,7 +7,7 @@ import norsys.filrouge.entities.Pronostic;
 
 public interface PronosticDao {
 
-	public int createPronostic(Pronostic pronostic);
+	public void createPronostic(Pronostic pronostic);
 
 	public ArrayList<Pronostic> getAllPronostics();
 

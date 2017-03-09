@@ -4,22 +4,22 @@
 /*==============================================================*/
 
 
-drop table if exists Competition;
+drop table if exists competition;
 
-drop table if exists Equipe;
+drop table if exists equipe;
 
-drop table if exists Rencontre;
+drop table if exists rencontre;
 
-drop table if exists Personne;
+drop table if exists personne;
 
-drop table if exists Poulle;
+drop table if exists poulle;
 
-drop table if exists Pronostic;
+drop table if exists pronostic;
 
 /*==============================================================*/
 /* Table : Competition                                          */
 /*==============================================================*/
-CREATE TABLE Competition (
+CREATE TABLE competition (
     idCompetition INT NOT NULL AUTO_INCREMENT,
     libelleCompetition VARCHAR(40) NOT NULL,
     PRIMARY KEY (idCompetition)
@@ -28,7 +28,7 @@ CREATE TABLE Competition (
 /*==============================================================*/
 /* Table : Equipe                                               */
 /*==============================================================*/
-CREATE TABLE Equipe (
+CREATE TABLE equipe (
     idEquipe INT NOT NULL AUTO_INCREMENT,
     libelleEquipe VARCHAR(40) NOT NULL,
     imgEquipe VARCHAR(30) NULL,
@@ -38,7 +38,7 @@ CREATE TABLE Equipe (
 /*==============================================================*/
 /* Table : Rencontre                                           */
 /*==============================================================*/
-CREATE TABLE Rencontre (
+CREATE TABLE rencontre (
     idRencontre INT NOT NULL AUTO_INCREMENT,
     idPoulle INT NULL,
     idEquipe1 INT NOT NULL,
@@ -55,20 +55,21 @@ CREATE TABLE Rencontre (
 /*==============================================================*/
 /* Table : Personne                                             */
 /*==============================================================*/
-CREATE TABLE Personne (
+CREATE TABLE personne (
     idPersonne INT NOT NULL AUTO_INCREMENT,
     nomPersonne VARCHAR(40) NOT NULL,
     prenomPersonne VARCHAR(40) NOT NULL,
     email VARCHAR(40) NOT NULL,
     passwd CHAR(32) NOT NULL,
-    role VARCHAR(40) NOT NULL,
+    role VARCHAR(40) NOT NULL,,
+    scoreGlobal INT NULL
     PRIMARY KEY (idPersonne)
 );
 
 /*==============================================================*/
 /* Table : Poulle                                               */
 /*==============================================================*/
-CREATE TABLE Poulle (
+CREATE TABLE poulle (
     idPoulle INT NOT NULL AUTO_INCREMENT,
     libellePoulle VARCHAR(20),
     PRIMARY KEY (idPoulle)
@@ -77,7 +78,7 @@ CREATE TABLE Poulle (
 /*==============================================================*/
 /* Table : Pronostic                                            */
 /*==============================================================*/
-CREATE TABLE Pronostic (
+CREATE TABLE pronostic (
     idPronostic INT NOT NULL AUTO_INCREMENT,
     idRencontre INT NOT NULL,
     idPersonne INT NOT NULL,
@@ -91,17 +92,17 @@ CREATE TABLE Pronostic (
 /*==============================================================*/
 
 
-ALTER TABLE Rencontre add CONSTRAINT fk_RencontrePoulle FOREIGN KEY (idPoulle)
-        REFERENCES Poulle (idPoulle);
-ALTER TABLE Rencontre add CONSTRAINT fk_RencontreEquipe1 FOREIGN KEY (idEquipe1)
-        REFERENCES Equipe (idEquipe);
-ALTER TABLE Rencontre add CONSTRAINT fk_RencontreEquipe2 FOREIGN KEY (idEquipe2)
-        REFERENCES Equipe (idEquipe);
-ALTER TABLE Rencontre add CONSTRAINT fk_RencontreCompetition FOREIGN KEY (idCompetition)
-        REFERENCES Competition(idCompetition);
+ALTER TABLE rencontre add CONSTRAINT fk_RencontrePoulle FOREIGN KEY (idPoulle)
+        REFERENCES poulle (idPoulle);
+ALTER TABLE rencontre add CONSTRAINT fk_RencontreEquipe1 FOREIGN KEY (idEquipe1)
+        REFERENCES equipe (idEquipe);
+ALTER TABLE rencontre add CONSTRAINT fk_RencontreEquipe2 FOREIGN KEY (idEquipe2)
+        REFERENCES equipe (idEquipe);
+ALTER TABLE rencontre add CONSTRAINT fk_RencontreCompetition FOREIGN KEY (idCompetition)
+        REFERENCES competition(idCompetition);
 
 
-ALTER TABLE Pronostic add CONSTRAINT fk_PronosticPersonne FOREIGN KEY (idPersonne)
-        REFERENCES Personne (idPersonne);
-ALTER TABLE Pronostic add CONSTRAINT fk_PronosticRencontre FOREIGN KEY (idRencontre )
-        REFERENCES Rencontre  (idRencontre );
+ALTER TABLE pronostic add CONSTRAINT fk_PronosticPersonne FOREIGN KEY (idPersonne)
+        REFERENCES personne (idPersonne);
+ALTER TABLE pronostic add CONSTRAINT fk_PronosticRencontre FOREIGN KEY (idRencontre )
+        REFERENCES rencontre  (idRencontre );
