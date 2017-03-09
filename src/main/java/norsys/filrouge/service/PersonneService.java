@@ -23,4 +23,9 @@ public class PersonneService {
 		return this.personneDao.getAllPersonnes();
 	}
 
+	public int editePersonne(Personne personne) {
+		// return this.personneDao.editePersonne();
+		return 0;
+	}
+
 }

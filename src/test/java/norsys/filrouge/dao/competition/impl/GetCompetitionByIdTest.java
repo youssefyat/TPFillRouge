@@ -20,3 +20,5 @@ public class GetCompetitionByIdTest extends CompetitionDaoTest {
 		
 	}
 }
+
+

@@ -1,6 +1,7 @@
 package norsys.filrouge.entities;
 
 public class Pronostic {
+
 	private int idPronostic;
 	private int butEquipe1;
 	private int butEquipe2;
@@ -124,6 +125,12 @@ public class Pronostic {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return new Pronostic(this.idPronostic, this.butEquipe1, this.butEquipe2, this.score, this.rencontre,
+				this.personne);
 	}
 
 }

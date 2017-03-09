@@ -16,7 +16,6 @@ public class CompetitionDaoImp implements CompetitionDao {
 		try {
 			this.connection = connection;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

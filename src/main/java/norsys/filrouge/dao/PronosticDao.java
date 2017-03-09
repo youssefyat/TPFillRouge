@@ -13,7 +13,7 @@ public interface PronosticDao {
 
 	public Pronostic getPronosticsById(int id);
 
-	public int editPronostic(int id, Pronostic pronostic);
+	public void editPronostic(int id, Pronostic pronostic);
 
 	public ArrayList<Pronostic> getPronosticsByPersonne(Personne personne);
 

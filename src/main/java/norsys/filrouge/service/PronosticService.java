@@ -8,11 +8,11 @@ import norsys.filrouge.entities.Personne;
 import norsys.filrouge.entities.Pronostic;
 import norsys.filrouge.util.ConnectionManagerJDBC;
 
-public class PrnosticService {
+public class PronosticService {
 
 	private final PronosticDao pronosticDao;
 
-	public PrnosticService() {
+	public PronosticService() {
 		this.pronosticDao = new PronosticsDaoImp(ConnectionManagerJDBC.getInstance().getConnection());
 	}
 
@@ -33,6 +33,10 @@ public class PrnosticService {
 	}
 
 	public int createPronostic(Pronostic pronostic) {
-		return this.createPronostic(pronostic);
+		return this.pronosticDao.createPronostic(pronostic);
+	}
+
+	public int editePronostic(Pronostic pronostic) {
+		return this.pronosticDao.editPronostic(pronostic.getIdPronostic(), pronostic);
 	}
 }
