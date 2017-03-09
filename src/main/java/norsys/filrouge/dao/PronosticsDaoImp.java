@@ -126,14 +126,10 @@ public class PronosticsDaoImp implements PronosticDao {
 	@Override
 	public void editPronostic(int id, Pronostic pronostic) {
 		try {
-			PreparedStatement reqPre = this.connection.prepareStatement(
-					"update pronostic set butEquipe1=? , butEquipe2=?, score=?, idRencontre=? , idPersonne=? where idPronostic=?");
-			reqPre.setInt(1, pronostic.getButEquipe1());
-			reqPre.setInt(2, pronostic.getButEquipe2());
-			reqPre.setInt(3, pronostic.getScore());
-			reqPre.setInt(5, pronostic.getRencontre().getIdRencontre());
-			reqPre.setInt(6, pronostic.getPersonne().getIdPersonne());
-			reqPre.setInt(7, id);
+			PreparedStatement reqPre = this.connection
+					.prepareStatement("update pronostic set  score=? where idPronostic=?");
+			reqPre.setInt(1, pronostic.getScore());
+			reqPre.setInt(2, id);
 			reqPre.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -145,25 +141,22 @@ public class PronosticsDaoImp implements PronosticDao {
 		ArrayList<Pronostic> lstPronostic = new ArrayList<Pronostic>();
 		Pronostic pronostic = null;
 		Rencontre rencontre = null;
-		RencontreDao rencontreDao = new RencontreDaoImp();
+		RencontreDao rencontreDao = new RencontreDaoImp(this.connection);
 		try {
 			PreparedStatement requetePron = this.connection
 					.prepareStatement("select * from pronostic where idPersonne = ? ");
 			requetePron.setInt(1, personne.getIdPersonne());
 			ResultSet rsPron = requetePron.executeQuery();
-			PreparedStatement requeteRenc = this.connection
-					.prepareStatement("select * from rencontre where idRencontre = ?");
+
 			while (rsPron.next()) {
 				int idPronostic = rsPron.getInt(1);
 				int idRenc = rsPron.getInt(2);
 				int butEquipe1 = rsPron.getInt(4);
 				int butEquipe2 = rsPron.getInt(5);
 				int score = rsPron.getInt(6);
-				requeteRenc.setInt(1, idRenc);
-				ResultSet rsRenc = requeteRenc.executeQuery();
-				while (rsRenc.next()) {
-					rencontre = rencontreDao.getRencontreById(idRenc);
-				}
+
+				rencontre = rencontreDao.getRencontreById(idRenc);
+
 				pronostic = new Pronostic(idPronostic, butEquipe1, butEquipe2, score, rencontre, personne);
 				lstPronostic.add(pronostic);
 			}

@@ -41,6 +41,7 @@ public class PersonneDaoImp implements PersonneDao {
 				String password = rs.getString(5);
 				String role = rs.getString(6);
 				personne = new Personne(idPers, nom, prenom, email, password, role);
+				personne.setScoreGlobal(rs.getInt(7));
 				lstPersonnes.add(personne);
 			}
 			return lstPersonnes;
@@ -67,6 +68,7 @@ public class PersonneDaoImp implements PersonneDao {
 				String password = rs.getString(5);
 				String role = rs.getString(6);
 				pers = new Personne(idPers, nom, prenom, email, password, role);
+				pers.setScoreGlobal(rs.getInt(7));
 			}
 			return pers;
 
@@ -79,15 +81,11 @@ public class PersonneDaoImp implements PersonneDao {
 	@Override
 	public void editPersonne(int id, Personne personne) {
 		try {
-			PreparedStatement reqPre = this.connection.prepareStatement(
-			        "update personne set nomPersonne=?, prenomPersonne=?, email=?, passwd=?,role=? where idPersonne=?");
-			reqPre.setString(1, personne.getNomPersonne());
-			reqPre.setString(2, personne.getPrenomPersonne());
-			reqPre.setString(3, personne.getEmail());
-			reqPre.setString(4, personne.getPassword());
-			reqPre.setString(5, personne.getRole());
-			reqPre.setInt(6, id);
-
+			PreparedStatement reqPre = this.connection
+					.prepareStatement("update personne set scoreGlobal=? where idPersonne=?");
+			reqPre.setInt(1, personne.getScoreGlobal());
+			reqPre.setInt(2, id);
+			reqPre.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

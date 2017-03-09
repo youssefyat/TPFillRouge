@@ -61,7 +61,8 @@ CREATE TABLE personne (
     prenomPersonne VARCHAR(40) NOT NULL,
     email VARCHAR(40) NOT NULL,
     passwd CHAR(32) NOT NULL,
-    role VARCHAR(40) NOT NULL,
+    role VARCHAR(40) NOT NULL,,
+    scoreGlobal INT NULL
     PRIMARY KEY (idPersonne)
 );
 
