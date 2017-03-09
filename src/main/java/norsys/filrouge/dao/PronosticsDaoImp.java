@@ -25,7 +25,7 @@ public class PronosticsDaoImp implements PronosticDao {
 	@Override
 	public void createPronostic(Pronostic pronostic) {
 		try {
-			PreparedStatement reqPre = this.connection.prepareStatement("insert into pronostic values(?,?,?,?,?,?");
+			PreparedStatement reqPre = this.connection.prepareStatement("insert into pronostic values(?,?,?,?,?,?)");
 			reqPre.setInt(1, pronostic.getIdPronostic());
 			reqPre.setInt(2, pronostic.getRencontre().getIdRencontre());
 			reqPre.setInt(3, pronostic.getPersonne().getIdPersonne());
