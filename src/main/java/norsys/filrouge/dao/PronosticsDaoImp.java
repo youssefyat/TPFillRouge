@@ -15,6 +15,9 @@ public class PronosticsDaoImp implements PronosticDao {
 
 	Connection connection;
 
+	public PronosticsDaoImp() {
+	}
+
 	public PronosticsDaoImp(Connection connection) {
 		this.connection = connection;
 	}
@@ -95,7 +98,7 @@ public class PronosticsDaoImp implements PronosticDao {
 				while (rsRenc.next()) {
 					rencontre = rencontreDao.getRencontreById(idRenc);
 				}
-				requetePers.setInt(1, idRenc);
+				requetePers.setInt(1, idPers);
 				ResultSet rsPers = requetePers.executeQuery();
 				while (rsPers.next()) {
 					personne = personneDao.getPersonneById(idPers);
@@ -129,8 +132,37 @@ public class PronosticsDaoImp implements PronosticDao {
 
 	@Override
 	public ArrayList<Pronostic> getPronosticsByPersonne(Personne personne) {
+		ArrayList<Pronostic> lstPronostic = new ArrayList<Pronostic>();
+		Pronostic pronostic = null;
+		Rencontre rencontre = null;
+		RencontreDao rencontreDao = new RencontreDaoImp();
+		try {
+			PreparedStatement requetePron = this.connection
+			        .prepareStatement("select * from pronostic where idPersonne = ? group by nomPersonne");
+			requetePron.setInt(1, personne.getIdPersonne());
+			ResultSet rsPron = requetePron.executeQuery();
+			PreparedStatement requeteRenc = this.connection
+			        .prepareStatement("select * from rencontre where idRencontre = ?");
+			while (rsPron.next()) {
+				int idPronostic = rsPron.getInt(1);
+				int idRenc = rsPron.getInt(2);
+				int butEquipe1 = rsPron.getInt(4);
+				int butEquipe2 = rsPron.getInt(5);
+				int score = rsPron.getInt(6);
+				requeteRenc.setInt(1, idRenc);
+				ResultSet rsRenc = requeteRenc.executeQuery();
+				while (rsRenc.next()) {
+					rencontre = rencontreDao.getRencontreById(idRenc);
+				}
+				pronostic = new Pronostic(idPronostic, butEquipe1, butEquipe2, score, rencontre, personne);
+				lstPronostic.add(pronostic);
+			}
+			return lstPronostic;
 
-		return null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

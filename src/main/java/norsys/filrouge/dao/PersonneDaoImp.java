@@ -28,21 +28,20 @@ public class PersonneDaoImp implements PersonneDao {
 	@Override
 	public ArrayList<Personne> getAllPersonnes() {
 		ArrayList<Personne> lstPersonnes = new ArrayList<Personne>();
+		Personne personne;
 		try {
 			Statement st = this.connection.createStatement();
 			ResultSet rs = st.executeQuery("select * from personne");
-			/*
-			 * rechercher les pronostics associé a un personne to do lATER
-			 */
+
 			while (rs.next()) {
-				int id = rs.getInt(1);
+				int idPers = rs.getInt(1);
 				String nom = rs.getString(2);
 				String prenom = rs.getString(3);
 				String email = rs.getString(4);
 				String password = rs.getString(5);
 				String role = rs.getString(6);
-				Personne pers = new Personne(id, nom, prenom, email, password, role);
-				lstPersonnes.add(pers);
+				personne = new Personne(idPers, nom, prenom, email, password, role);
+				lstPersonnes.add(personne);
 			}
 			return lstPersonnes;
 

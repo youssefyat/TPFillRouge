@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Time;
 import java.util.ArrayList;
 
@@ -31,8 +32,21 @@ public class RencontreDaoImp implements RencontreDao {
 
 	@Override
 	public ArrayList<Rencontre> getAllRencontres() {
+		ArrayList<Rencontre> lstRencontre = new ArrayList<Rencontre>();
+		try {
+			Statement st = this.connection.createStatement();
+			ResultSet rs = st.executeQuery("select * from rencontre");
 
-		return null;
+			while (rs.next()) {
+				int idRen = rs.getInt(1);
+				lstRencontre.add(this.getRencontreById(idRen));
+			}
+			return lstRencontre;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
