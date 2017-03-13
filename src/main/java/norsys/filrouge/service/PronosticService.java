@@ -37,10 +37,6 @@ public class PronosticService {
 	}
 
 	public void editePronostic(Pronostic pronostic) {
-<<<<<<< HEAD
-		 this.pronosticDao.editPronostic(pronostic.getIdPronostic(), pronostic);
-=======
 		this.pronosticDao.editPronostic(pronostic.getIdPronostic(), pronostic);
->>>>>>> branch 'master' of https://github.com/youssefyat/TPFillRouge.git
 	}
 }

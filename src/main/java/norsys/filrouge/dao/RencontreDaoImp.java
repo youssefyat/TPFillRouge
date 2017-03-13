@@ -71,8 +71,9 @@ public class RencontreDaoImp implements RencontreDao {
 				Time dateFin = rs.getTime(7);
 				int butEq1 = rs.getInt(8);
 				int butEq2 = rs.getInt(9);
-				rencontre = new Rencontre(idRen, dateDebut, dateFin, butEq1, butEq2, equipeDao.getEquipeById(idEq1),
-						equipeDao.getEquipeById(idEq2), polleDao.getPoulleById(idPoulle));
+				rencontre = new Rencontre(idRen, dateDebut, dateFin, butEq1, butEq2,
+						equipeDao.getEquipeById(idEq1).get(), equipeDao.getEquipeById(idEq2).get(),
+						polleDao.getPoulleById(idPoulle).get());
 			}
 			return rencontre;
 

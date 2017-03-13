@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package norsys.filrouge.dao;
 
 import java.sql.Connection;
@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Optional;
 
 import norsys.filrouge.entities.Personne;
 
@@ -55,7 +54,7 @@ public class PersonneDaoImp implements PersonneDao {
 	}
 
 	@Override
-	public Optional<Personne> getPersonneById(int id) {
+	public Personne getPersonneById(int id) {
 		Personne pers = new Personne();
 		try {
 			String requetePrep = "select * from personne where idPersonne = ?";
@@ -71,7 +70,7 @@ public class PersonneDaoImp implements PersonneDao {
 				String role = rs.getString(6);
 				pers = new Personne(idPers, nom, prenom, email, password, role);
 			}
-			return Optional.ofNullable(pers);
+			return pers;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -83,7 +82,7 @@ public class PersonneDaoImp implements PersonneDao {
 	public void editPersonne(int id, Personne personne) {
 		try {
 			PreparedStatement reqPre = this.connection.prepareStatement(
-			        "update personne set nomPersonne=?, prenomPersonne=?, email=?, passwd=?,role=? where idPersonne=?");
+					"update personne set nomPersonne=?, prenomPersonne=?, email=?, passwd=?,role=? where idPersonne=?");
 			reqPre.setString(1, personne.getNomPersonne());
 			reqPre.setString(2, personne.getPrenomPersonne());
 			reqPre.setString(3, personne.getEmail());

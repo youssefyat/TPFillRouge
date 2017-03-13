@@ -1,7 +1,6 @@
 package norsys.filrouge.dao;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import norsys.filrouge.entities.Personne;
 
@@ -11,7 +10,7 @@ public interface PersonneDao {
 
 	public ArrayList<Personne> getAllPersonnes();
 
-	public Optional<Personne> getPersonneById(int id);
+	public Personne getPersonneById(int id);
 
 	public void editPersonne(int id, Personne personne);
 
